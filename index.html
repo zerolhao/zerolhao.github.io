@@ -106,7 +106,7 @@
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%A9%BA%E5%85%83%E7%B4%A0" target="_blank" rel="noopener">详见此</a></p>
 <h2 id="5-可替换标签"><a href="#5-可替换标签" class="headerlink" title="5. 可替换标签"></a>5. 可替换标签</h2><p>从元素本身的特点来讲，HTML标签元素可以分为可替换元素(replaceable element)和不可替换元素(none-replaceable element)。<br>不可替换元素：<br>HTML中的大多数元素是不可替换元素，即其内容直接表现给用户端（例如浏览器）。</p>
 <blockquote>
-<p>例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; 段落```&lt;p&gt;```是一个不可替换元素，文字“段落的内容”全被显示。</span><br><span class="line"></span><br><span class="line">**可替换元素:**</span><br><span class="line">可替换元素就是浏览器根据元素的标签和属性，来决定元素的具体显示内容。</span><br><span class="line">&gt; 例如浏览器会根据```&lt;img&gt;```标签的src属性的值来读取图片信息并显示出来，而如果查看(x)html代码，</span><br><span class="line">&gt; 则看不到图片的实际内容；又例如根据```&lt;input&gt;```标签的type属性来决定是显示输入框，还是单选按钮等。</span><br><span class="line"></span><br><span class="line">更详细的解释(从[CSS2.1规范](https://www.w3.org/TR/CSS21/conform.html))：</span><br><span class="line">&gt; 内容超出CSS格式模型范围的元素，如图像，嵌入式文档或小程序。例如，HTML IMG元素的内容通常被其“src”属性指定的图像取代。替换的元素通常具有固有的尺寸：固有宽度，固有高度和固有比率。例如，位图图像具有以绝对单位指定的固有宽度和固有高度（从中可明显确定固有比率）。另一方面，其他文档可能没有任何固有的尺寸（例如，空白的HTML文档）。</span><br><span class="line">如果认为这些维度可能会泄露敏感信息给第三方，用户代理可能会认为被替换的元素没有任何内在维度。例如，如果一个HTML文档根据用户的银行余额改变了内在大小，那么UA可能希望这个资源没有固有维度。</span><br><span class="line">CSS渲染模型中不考虑替换元素的内容。</span><br><span class="line"></span><br><span class="line">常见的可替换元素有：</span><br></pre></td></tr></table></figure></p>
+<p>例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; 段落```&lt;p&gt;```是一个不可替换元素，文字“段落的内容”全被显示。</span><br><span class="line"></span><br><span class="line">**可替换元素:**</span><br><span class="line">可替换元素就是浏览器根据元素的标签和属性，来决定元素的具体显示内容。</span><br><span class="line">&gt; 例如浏览器会根据```&lt;img&gt;```标签的src属性的值来读取图片信息并显示出来，而如果查看(x)html代码，</span><br><span class="line">&gt; 则看不到图片的实际内容；又例如根据```&lt;input&gt;```标签的type属性来决定是显示输入框，还是单选按钮等。</span><br><span class="line"></span><br><span class="line">更详细的解释(从[CSS2.1规范](https://www.w3.org/TR/CSS21/conform.html))：</span><br><span class="line">&gt; 内容超出CSS格式模型范围的元素，如图像，嵌入式文档或小程序。</span><br><span class="line">&gt; 例如，HTML IMG元素的内容通常被其“src”属性指定的图像取代。</span><br><span class="line">&gt; 替换的元素通常具有固有的尺寸：固有宽度，固有高度和固有比率。</span><br><span class="line">&gt; 例如，位图图像具有以绝对单位指定的固有宽度和固有高度（从中可明显确定固有比率）。</span><br><span class="line">&gt; 另一方面，其他文档可能没有任何固有的尺寸（例如，空白的HTML文档）。</span><br><span class="line">&gt; 如果认为这些维度可能会泄露敏感信息给第三方，用户代理可能会认为被替换的元素没有任何内在维度。</span><br><span class="line">&gt; 例如，如果一个HTML文档根据用户的银行余额改变了内在大小，那么UA可能希望这个资源没有固有维度。</span><br><span class="line">&gt; CSS渲染模型中不考虑替换元素的内容。</span><br><span class="line"></span><br><span class="line">常见的可替换元素有：</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p><img></p>
 <p><object></object></p>
@@ -121,7 +121,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2017/12/02/初识HTML/" data-id="cjapg2h8g0001n09wonzt1522" class="article-share-link" data-share="baidu" data-title="初识HTML">Share</a>
+        <a data-url="http://yoursite.com/2017/12/02/初识HTML/" data-id="cjapg8bzp0002lo9wgry9v243" class="article-share-link" data-share="baidu" data-title="初识HTML">Share</a>
       
 
       
@@ -206,7 +206,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2017/11/24/Hexo+GitHub博客搭建/" data-id="cjapg2h8t0004n09wd2dkq33o" class="article-share-link" data-share="baidu" data-title="Hexo+GitHub博客搭建">Share</a>
+        <a data-url="http://yoursite.com/2017/11/24/Hexo+GitHub博客搭建/" data-id="cjapg8bza0000lo9wc44vl85p" class="article-share-link" data-share="baidu" data-title="Hexo+GitHub博客搭建">Share</a>
       
 
       
@@ -248,7 +248,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2017/11/23/第二篇博客/" data-id="cjapg2h8n0002n09w3ym5v1mx" class="article-share-link" data-share="baidu" data-title="第二篇博客">Share</a>
+        <a data-url="http://yoursite.com/2017/11/23/第二篇博客/" data-id="cjapg8bzt0004lo9w187o82zi" class="article-share-link" data-share="baidu" data-title="第二篇博客">Share</a>
       
 
       
@@ -290,7 +290,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2017/11/23/开博大吉/" data-id="cjapg2h8q0003n09w3g8khrlj" class="article-share-link" data-share="baidu" data-title="开博大吉">Share</a>
+        <a data-url="http://yoursite.com/2017/11/23/开博大吉/" data-id="cjapg8bzr0003lo9wp75pt9vi" class="article-share-link" data-share="baidu" data-title="开博大吉">Share</a>
       
 
       
@@ -341,7 +341,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2017/11/23/hello-world/" data-id="cjapg2h880000n09wq6q2v1oo" class="article-share-link" data-share="baidu" data-title="Hello World">Share</a>
+        <a data-url="http://yoursite.com/2017/11/23/hello-world/" data-id="cjapg8bzk0001lo9w3fgzucxw" class="article-share-link" data-share="baidu" data-title="Hello World">Share</a>
       
 
       
