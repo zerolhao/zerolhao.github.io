@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/A26-JS函数-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/A27-DOM API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zerolhao">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/24/A26-JS函数-1/" itemprop="url">A26-JS函数</a></h1>
+                <a class="post-title-link" href="/2018/01/25/A27-DOM API/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -257,7 +257,418 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T22:27:39+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="A27-DOM-API"><a href="#A27-DOM-API" class="headerlink" title="A27-DOM API"></a>A27-DOM API</h2><h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model" target="_blank" rel="noopener">MDN</a></li>
+<li><a href="http://javascript.ruanyifeng.com/dom/node.html" target="_blank" rel="noopener">阮一峰</a><br>什么是DOM，DOM最重要的就是要明白它的概念，否则遇到问题也不知道如何下手<br>大家都说DOM树，这是一个比喻，易于理解，<br>D就是文档，想象它是一个树状的结构（就像之前数据结构里的二叉树那样），树上有着节点（node）<br>O就是对象，<br>M也就是模型，把D和O做一个一一对应的映射，就是这个模型<br>所以DOM就是把文档变成一个对象<br><img src="http://upload-images.jianshu.io/upload_images/9047034-b2ba8fd51edc6b54.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="映射"><br><strong>上图红字</strong><br>DOM转化来的js对象里面到底存放什么由DOM标准规定<br>比如：<br>上图的 head、body、meta、link、h1、p 都是Element的实例<br>（中间存在其它函数，F12调试可见，比如document.body就是document.body.<strong>proto</strong>-&gt;HTMLBodyElement.prototype.<strong>proto</strong>-&gt;HTMLElement.prototype.<strong>proto</strong>-&gt;Element.prototype）<br>根节点html比较特殊，是由document构造的（DOucment-&gt;HTMLDocument,简写）<br>至于文本节点则是由</li>
+</ul>
+<h2 id="Node-Api"><a href="#Node-Api" class="headerlink" title="Node Api"></a>Node Api</h2><h3 id="Node-属性"><a href="#Node-属性" class="headerlink" title="Node 属性"></a>Node 属性</h3><p>记住以下单词；</p>
+<ul>
+<li>child / children / parent</li>
+<li>node </li>
+<li>first / last</li>
+<li>next / previous</li>
+<li>sibling / siblings</li>
+<li>type</li>
+<li>value / text / content</li>
+<li>inner / outer</li>
+<li>element<br>然后相互组合<br>一部分：childNodes,firstChild,innerText,lastChild,nextSibling,nodeName,nodeType,nodeValue,outerText,ownerDocument,parentElement,parentNode,previousSibling,textContent<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;&lt;/head&gt;</span><br><span class="line">  &lt;body&gt;&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">document.body.previousSibling // #text</span><br><span class="line">document.body.previousSibling.previousSibling // &lt;head&gt;&lt;/head&gt;</span><br><span class="line">docuemnt.body.previousElementSibling // &lt;head&gt;&lt;/head&gt;</span><br><span class="line">// 为什么previousSibling返回的是文本节点呢，这是因为本来dom是配对xml的，后来强行配对html</span><br><span class="line">// previousSibling是 Node 的属性，previousElementSibling是 Element 的属性</span><br><span class="line">// previousSibling 是本来就有的，previousElementSibling是后来加的</span><br><span class="line">// 类似的还有 nextSibling / nextElementSibling, firstChild / firstElementChild 等等</span><br><span class="line">// 可以在F12中尝试，控制台会显示提示以及该属性属于哪个对象</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="几个要注意的-Node-Api"><a href="#几个要注意的-Node-Api" class="headerlink" title="几个要注意的 Node Api"></a>几个要注意的 Node Api</h3><ul>
+<li><code>nodeName</code><br>注意这个api很奇葩<br><code>document.body.nodeName // &#39;BODY</code><br><code>document.documentElement.nodeName // &#39;HTML</code><br><code>document.nodeName不行，必须像上面那样写</code><br>它对所有标签返回名称都是大写<br><strong>但是！唯有svg，它返回小写</strong><br><code>document.getElementsByTagName(&#39;svg&#39;)[0] // &#39;svg&#39;</code><br>这是因为svg是‘外来的’标签，它是后来新加的，然后就这么小写了……</li>
+<li><p><code>nodeType</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a><br>只读属性 Node.nodeType 表示的是该节点的类型。其所有可能的值请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType#%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B%E5%B8%B8%E9%87%8F" target="_blank" rel="noopener">节点类型常量.</a><br>它返回一个整数来表示节点的类型<br>(之所以这样是因为当年的计算机还没这么发达，而1比element的字节小多了)<br>以下几个需知：<br>1  元素节点， Eg：<div>、<p><br>3  文本节点， 元素或者属性中实际的文字，比如</p><p>段落</p>中的段落二字<br>9  Document节点，<br>11 DocumentFragment节点 // 很特殊的一个节点（暂时我还不清楚，google DocumentFragment优化）</div></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.body.nodeType // 1</span><br><span class="line">document.nodeType // 9</span><br><span class="line">document.documentElement.nodetype // 1</span><br><span class="line">document.documentElement.nodeName // &apos;HTML&apos;</span><br><span class="line">// 所以document.documentElement才是html，document不是？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>innerText</code>与<code>textContent</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent" target="_blank" rel="noopener">MDN</a><br>区别:</p>
+<ul>
+<li>textContent 会获取所有元素的内容，包括 <script> 和 <style> 元素，然而 innerText 不会。</li>
+<li>innerText意识到样式，并且不会返回隐藏元素的文本(设置display:none的元素)，而textContent会。</li>
+<li>由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。</li>
+<li>与 textContent 不同的是, 在 Internet Explorer (对于小于等于 IE11 的版本) 中对 innerText 进行修改， 不仅会移除当前元素的子节点，而且还会永久性地破坏所有后代文本节点（所以不可能再次将节点再次插入到任何其他元素或同一元素中）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Node-方法-（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"><a href="#Node-方法-（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）" class="headerlink" title="Node 方法 （如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"></a>Node 方法 （如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</h3><ul>
+<li><code>appendChild()</code></li>
+<li><code>cloneNode() // 分深、浅拷贝</code></li>
+<li><code>contains()</code></li>
+<li><code>hasChildNodes()</code></li>
+<li><code>insertBefore()</code></li>
+<li><code>isEqualNode() // 看起来相等</code></li>
+<li><code>isSameNode() // 完全相等，可以用 === 来代替</code></li>
+<li><code>removeChild()</code></li>
+<li><code>replaceChild()</code></li>
+<li><code>normalize() // 常规化</code><br>基本看见名字就知道作用，不清楚也可以查MDN。</li>
+</ul>
+<h2 id="Document-Api-MDN"><a href="#Document-Api-MDN" class="headerlink" title="Document Api -MDN"></a>Document Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document">MDN</a></h2><h3 id="Document-属性"><a href="#Document-属性" class="headerlink" title="Document 属性"></a>Document 属性</h3><ul>
+<li>body</li>
+<li>characterSet</li>
+<li>childElementCount</li>
+<li>children</li>
+<li>doctype</li>
+<li>documentElement</li>
+<li>domain</li>
+<li>fullscreen</li>
+<li>head</li>
+<li>hidden</li>
+<li>images</li>
+<li>links</li>
+<li>location</li>
+<li>onxxxxxxxxx</li>
+<li>origin</li>
+<li>plugins</li>
+<li>readyState</li>
+<li>referrer</li>
+<li>scripts</li>
+<li>scrollingElement</li>
+<li>styleSheets</li>
+<li>title</li>
+<li>visibilityState<h3 id="Document-方法："><a href="#Document-方法：" class="headerlink" title="Document 方法："></a>Document 方法：</h3></li>
+<li>close()</li>
+<li>createDocumentFragment()</li>
+<li>createElement()</li>
+<li>createTextNode()</li>
+<li>execCommand()</li>
+<li>exitFullscreen()</li>
+<li>getElementById()</li>
+<li>getElementsByClassName()</li>
+<li>getElementsByName()</li>
+<li>getElementsByTagName()</li>
+<li>getSelection()</li>
+<li>hasFocus()</li>
+<li>open()</li>
+<li>querySelector()</li>
+<li>querySelectorAll()</li>
+<li>registerElement()</li>
+<li>write()</li>
+<li>writeln()</li>
+</ul>
+<h2 id="Element-Api-MDN"><a href="#Element-Api-MDN" class="headerlink" title="Element Api -MDN"></a>Element Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element">MDN</a></h2></script></li></ul></li></ul>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/A27-DOM-API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zerolhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerolhao-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/A27-DOM-API/" itemprop="url">A27-DOM API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T22:23:28+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model" target="_blank" rel="noopener">MDN</a></li>
+<li><a href="http://javascript.ruanyifeng.com/dom/node.html" target="_blank" rel="noopener">阮一峰</a><br>什么是DOM，DOM最重要的就是要明白它的概念，否则遇到问题也不知道如何下手<br>大家都说DOM树，这是一个比喻，易于理解，<br>D就是文档，想象它是一个树状的结构（就像之前数据结构里的二叉树那样），树上有着节点（node）<br>O就是对象，<br>M也就是模型，把D和O做一个一一对应的映射，就是这个模型<br>所以DOM就是把文档变成一个对象<br><img src="http://upload-images.jianshu.io/upload_images/9047034-b2ba8fd51edc6b54.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="映射"><br><strong>上图红字</strong><br>DOM转化来的js对象里面到底存放什么由DOM标准规定<br>比如：<br>上图的 head、body、meta、link、h1、p 都是Element的实例<br>（中间存在其它函数，F12调试可见，比如document.body就是document.body.<strong>proto</strong>-&gt;HTMLBodyElement.prototype.<strong>proto</strong>-&gt;HTMLElement.prototype.<strong>proto</strong>-&gt;Element.prototype）<br>根节点html比较特殊，是由document构造的（DOucment-&gt;HTMLDocument,简写）<br>至于文本节点则是由</li>
+</ul>
+<h2 id="Node-Api"><a href="#Node-Api" class="headerlink" title="Node Api"></a>Node Api</h2><h3 id="Node-属性"><a href="#Node-属性" class="headerlink" title="Node 属性"></a>Node 属性</h3><p>记住以下单词；</p>
+<ul>
+<li>child / children / parent</li>
+<li>node </li>
+<li>first / last</li>
+<li>next / previous</li>
+<li>sibling / siblings</li>
+<li>type</li>
+<li>value / text / content</li>
+<li>inner / outer</li>
+<li>element<br>然后相互组合<br>一部分：childNodes,firstChild,innerText,lastChild,nextSibling,nodeName,nodeType,nodeValue,outerText,ownerDocument,parentElement,parentNode,previousSibling,textContent<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;&lt;/head&gt;</span><br><span class="line">  &lt;body&gt;&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">document.body.previousSibling // #text</span><br><span class="line">document.body.previousSibling.previousSibling // &lt;head&gt;&lt;/head&gt;</span><br><span class="line">docuemnt.body.previousElementSibling // &lt;head&gt;&lt;/head&gt;</span><br><span class="line">// 为什么previousSibling返回的是文本节点呢，这是因为本来dom是配对xml的，后来强行配对html</span><br><span class="line">// previousSibling是 Node 的属性，previousElementSibling是 Element 的属性</span><br><span class="line">// previousSibling 是本来就有的，previousElementSibling是后来加的</span><br><span class="line">// 类似的还有 nextSibling / nextElementSibling, firstChild / firstElementChild 等等</span><br><span class="line">// 可以在F12中尝试，控制台会显示提示以及该属性属于哪个对象</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="几个要注意的-Node-Api"><a href="#几个要注意的-Node-Api" class="headerlink" title="几个要注意的 Node Api"></a>几个要注意的 Node Api</h3><ul>
+<li><code>nodeName</code><br>注意这个api很奇葩<br><code>document.body.nodeName // &#39;BODY</code><br><code>document.documentElement.nodeName // &#39;HTML</code><br><code>document.nodeName不行，必须像上面那样写</code><br>它对所有标签返回名称都是大写<br><strong>但是！唯有svg，它返回小写</strong><br><code>document.getElementsByTagName(&#39;svg&#39;)[0] // &#39;svg&#39;</code><br>这是因为svg是‘外来的’标签，它是后来新加的，然后就这么小写了……</li>
+<li><p><code>nodeType</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a><br>只读属性 Node.nodeType 表示的是该节点的类型。其所有可能的值请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType#%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B%E5%B8%B8%E9%87%8F" target="_blank" rel="noopener">节点类型常量.</a><br>它返回一个整数来表示节点的类型<br>(之所以这样是因为当年的计算机还没这么发达，而1比element的字节小多了)<br>以下几个需知：<br>1  元素节点， Eg：<div>、<p><br>3  文本节点， 元素或者属性中实际的文字，比如</p><p>段落</p>中的段落二字<br>9  Document节点，<br>11 DocumentFragment节点 // 很特殊的一个节点（暂时我还不清楚，google DocumentFragment优化）</div></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.body.nodeType // 1</span><br><span class="line">document.nodeType // 9</span><br><span class="line">document.documentElement.nodetype // 1</span><br><span class="line">document.documentElement.nodeName // &apos;HTML&apos;</span><br><span class="line">// 所以document.documentElement才是html，document不是？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>innerText</code>与<code>textContent</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent" target="_blank" rel="noopener">MDN</a><br>区别:</p>
+<ul>
+<li>textContent 会获取所有元素的内容，包括 <script> 和 <style> 元素，然而 innerText 不会。</li>
+<li>innerText意识到样式，并且不会返回隐藏元素的文本(设置display:none的元素)，而textContent会。</li>
+<li>由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。</li>
+<li>与 textContent 不同的是, 在 Internet Explorer (对于小于等于 IE11 的版本) 中对 innerText 进行修改， 不仅会移除当前元素的子节点，而且还会永久性地破坏所有后代文本节点（所以不可能再次将节点再次插入到任何其他元素或同一元素中）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Node-方法-（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"><a href="#Node-方法-（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）" class="headerlink" title="Node 方法 （如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"></a>Node 方法 （如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</h3><ul>
+<li><code>appendChild()</code></li>
+<li><code>cloneNode() // 分深、浅拷贝</code></li>
+<li><code>contains()</code></li>
+<li><code>hasChildNodes()</code></li>
+<li><code>insertBefore()</code></li>
+<li><code>isEqualNode() // 看起来相等</code></li>
+<li><code>isSameNode() // 完全相等，可以用 === 来代替</code></li>
+<li><code>removeChild()</code></li>
+<li><code>replaceChild()</code></li>
+<li><code>normalize() // 常规化</code><br>基本看见名字就知道作用，不清楚也可以查MDN。</li>
+</ul>
+<h2 id="Document-Api-MDN"><a href="#Document-Api-MDN" class="headerlink" title="Document Api -MDN"></a>Document Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document">MDN</a></h2><h3 id="Document-属性"><a href="#Document-属性" class="headerlink" title="Document 属性"></a>Document 属性</h3><ul>
+<li>body</li>
+<li>characterSet</li>
+<li>childElementCount</li>
+<li>children</li>
+<li>doctype</li>
+<li>documentElement</li>
+<li>domain</li>
+<li>fullscreen</li>
+<li>head</li>
+<li>hidden</li>
+<li>images</li>
+<li>links</li>
+<li>location</li>
+<li>onxxxxxxxxx</li>
+<li>origin</li>
+<li>plugins</li>
+<li>readyState</li>
+<li>referrer</li>
+<li>scripts</li>
+<li>scrollingElement</li>
+<li>styleSheets</li>
+<li>title</li>
+<li>visibilityState<h3 id="Document-方法："><a href="#Document-方法：" class="headerlink" title="Document 方法："></a>Document 方法：</h3></li>
+<li>close()</li>
+<li>createDocumentFragment()</li>
+<li>createElement()</li>
+<li>createTextNode()</li>
+<li>execCommand()</li>
+<li>exitFullscreen()</li>
+<li>getElementById()</li>
+<li>getElementsByClassName()</li>
+<li>getElementsByName()</li>
+<li>getElementsByTagName()</li>
+<li>getSelection()</li>
+<li>hasFocus()</li>
+<li>open()</li>
+<li>querySelector()</li>
+<li>querySelectorAll()</li>
+<li>registerElement()</li>
+<li>write()</li>
+<li>writeln()</li>
+</ul>
+<h2 id="Element-Api-MDN"><a href="#Element-Api-MDN" class="headerlink" title="Element Api -MDN"></a>Element Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element">MDN</a></h2><p>关于 DOM API 更多见之后写的常用 API。（待续）</p>
+</script></li></ul></li></ul>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/A26-JS函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zerolhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerolhao-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/24/A26-JS函数/" itemprop="url">A26-JS函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-24T23:34:02+08:00">
                 2018-01-24
@@ -395,145 +806,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/A26-JS函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zerolhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerolhao-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/23/A26-JS函数/" itemprop="url">A26-JS函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T22:20:16+08:00">
-                2018-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Function-MDN"><a href="#Function-MDN" class="headerlink" title="## Function -MDN"></a>## Function -<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank" rel="noopener">MDN</a></h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var f = function(a,b)&#123;</span><br><span class="line">  return a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  语法：<code>new Function ([arg1[, arg2[, ...argN]],] functionBody)</code><br>  参数：<br>  <code>arg1, arg2, ... argN</code><br>  被函数使用的参数的名称必须是合法命名的。参数名称是一个有效的JavaScript标识符的字符串，或者一个用逗号分隔的有效字符串的列表;例如“×”，“theValue”，或“A，B”。<br>  <code>functionBody</code><br>  一个含有包括函数定义的JavaScript语句的字符串</p>
-<p>  函数总是会返回一个值<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">  console.log(&apos;函数&apos;)</span><br><span class="line">  return undefined // 如果你不写就会自动添加这样的一句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="函数的5种声明方式"><a href="#函数的5种声明方式" class="headerlink" title="函数的5种声明方式"></a>函数的5种声明方式</h2><p>function 有一个属性：<code>name</code></p>
-<ol>
-<li><p>具名函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function f(x,y)&#123;</span><br><span class="line">  console.log(x+y) // 打印什么和返回什么没有必然联系</span><br><span class="line">  return undefined // 必须有一个return，没有的话也会被自动添加本句</span><br><span class="line">&#125;</span><br><span class="line">f.name // &apos;f&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匿名函数<br>它不能单独使用，可以赋给一个变量来使用<a href="https://developer.mozilla.org/zh-CN/docs/web/JavaScript/Reference/Operators/function" target="_blank" rel="noopener">函数表达式</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var f</span><br><span class="line">f = function(x,y)&#123;</span><br><span class="line">    return x+y</span><br><span class="line">&#125;</span><br><span class="line">f.name // &apos;f&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>具名函数赋值 -<a href="http://javascript.ruanyifeng.com/grammar/function.html#toc1" target="_blank" rel="noopener">阮一峰</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function f()&#123;&#125;</span><br><span class="line">f.name // &apos;f&apos;</span><br><span class="line">console.log(f) // &apos;function f()&#123;&#125;&apos;</span><br><span class="line"></span><br><span class="line">var f2 = function fn()&#123;&#125;</span><br><span class="line">f2.name // &apos;fn&apos;</span><br><span class="line">console.log(fn) // Uncaught ReferenceError: fn is not defined</span><br><span class="line">// 只能在 function fn()&#123;&#125;这个函数里面访问到fn，在外面无效</span><br><span class="line">// js 的不一致性</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>window.Function 函数对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var f = new FUnction(&apos;x&apos;, &apos;y&apos;, &apos;return x+y&apos;)</span><br><span class="line">f.name // &apos;anonymous&apos;</span><br><span class="line"></span><br><span class="line">var n=1</span><br><span class="line">var fn = new Function(&apos;x&apos;, &apos;y&apos;, &apos;return x+&apos; + n + &apos;+y&apos; ) </span><br><span class="line">console.log(fn) // f anonymous(x,y)&#123; return x+1+y &#125;</span><br><span class="line">fn(1,2) // 4</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>箭头函数 -<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">MDN</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var f = (x,y) =&gt; &#123;return x+y&#125;</span><br><span class="line">f.name // &apos;f&apos;</span><br><span class="line"></span><br><span class="line">var f2 = (x,y) =&gt; x+y // 只有一句 return 的时候，可以将 return 和 &#123;&#125; 省略</span><br><span class="line">var f3 = n =&gt; n*n // 如果参数只有一个，() 可以省略</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/A25-JS数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -563,7 +835,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T23:34:15+08:00">
                 2018-01-20
@@ -776,7 +1048,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-17T23:37:46+08:00">
                 2018-01-17
@@ -1009,7 +1281,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T22:19:20+08:00">
                 2018-01-15
@@ -1221,7 +1493,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T22:37:40+08:00">
                 2018-01-07
@@ -1441,7 +1713,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-02T19:04:07+08:00">
                 2017-12-02
@@ -1589,7 +1861,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-24T20:24:08+08:00">
                 2017-11-24
@@ -1751,7 +2023,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T23:07:19+08:00">
                 2017-11-23
@@ -1794,125 +2066,6 @@
         
           
             <h1 id="我的第二篇博客"><a href="#我的第二篇博客" class="headerlink" title="我的第二篇博客"></a>我的第二篇博客</h1><h2 id="依然教程ing…"><a href="#依然教程ing…" class="headerlink" title="依然教程ing…"></a>依然教程ing…</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/开博大吉/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zerolhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerolhao-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/23/开博大吉/" itemprop="url">开博大吉</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T23:01:01+08:00">
-                2017-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="教程进行ing…"><a href="#教程进行ing…" class="headerlink" title="教程进行ing…"></a>教程进行ing…</h1>
           
         
       
@@ -1997,8 +2150,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2048,7 +2201,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
