@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="zerolhao-blog">
 <meta property="og:description" content="DOM MDN 阮一峰什么是DOM，DOM最重要的就是要明白它的概念，否则遇到问题也不知道如何下手大家都说DOM树，这是一个比喻，易于理解，D就是文档，想象它是一个树状的结构（就像之前数据结构里的二叉树那样），树上有着节点（node）O就是对象，M也就是模型，把D和O做一个一一对应的映射，就是这个模型所以DOM就是把文档变成一个对象上图红字DOM转化来的js对象里面到底存放什么由DOM标准规定比如">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9047034-b2ba8fd51edc6b54.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-25T15:03:50.485Z">
+<meta property="og:updated_time" content="2018-01-25T15:09:25.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A27-DOM API">
 <meta name="twitter:description" content="DOM MDN 阮一峰什么是DOM，DOM最重要的就是要明白它的概念，否则遇到问题也不知道如何下手大家都说DOM树，这是一个比喻，易于理解，D就是文档，想象它是一个树状的结构（就像之前数据结构里的二叉树那样），树上有着节点（node）O就是对象，M也就是模型，把D和O做一个一一对应的映射，就是这个模型所以DOM就是把文档变成一个对象上图红字DOM转化来的js对象里面到底存放什么由DOM标准规定比如">
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -260,7 +260,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T22:23:28+08:00">
                 2018-01-25
@@ -319,18 +319,18 @@
 </ul>
 <h3 id="几个要注意的-Node-Api"><a href="#几个要注意的-Node-Api" class="headerlink" title="几个要注意的 Node Api"></a>几个要注意的 Node Api</h3><ul>
 <li><code>nodeName</code><br>注意这个api很奇葩<br><code>document.body.nodeName // &#39;BODY</code><br><code>document.documentElement.nodeName // &#39;HTML</code><br><code>document.nodeName不行，必须像上面那样写</code><br>它对所有标签返回名称都是大写<br><strong>但是！唯有svg，它返回小写</strong><br><code>document.getElementsByTagName(&#39;svg&#39;)[0] // &#39;svg&#39;</code><br>这是因为svg是‘外来的’标签，它是后来新加的，然后就这么小写了……</li>
-<li><p><code>nodeType</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a><br>只读属性 Node.nodeType 表示的是该节点的类型。其所有可能的值请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType#%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B%E5%B8%B8%E9%87%8F" target="_blank" rel="noopener">节点类型常量.</a><br>它返回一个整数来表示节点的类型<br>(之所以这样是因为当年的计算机还没这么发达，而1比element的字节小多了)<br>以下几个需知：<br>1  元素节点， Eg：<div>、<p><br>3  文本节点， 元素或者属性中实际的文字，比如</p><p>段落</p>中的段落二字<br>9  Document节点，<br>11 DocumentFragment节点 // 很特殊的一个节点（暂时我还不清楚，google DocumentFragment优化）</div></p>
+<li><p><code>nodeType</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a><br>只读属性 Node.nodeType 表示的是该节点的类型。其所有可能的值请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType#%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B%E5%B8%B8%E9%87%8F" target="_blank" rel="noopener">节点类型常量.</a><br>它返回一个整数来表示节点的类型<br>(之所以这样是因为当年的计算机还没这么发达，而1比element的字节小多了)<br>以下几个需知：<br>1  元素节点， Eg：<code>&lt;div&gt;、&lt;p&gt;</code><br>3  文本节点， 元素或者属性中实际的文字，比如<code>&lt;p&gt;段落&lt;/p&gt;</code>中的段落二字<br>9  Document节点，<br>11 DocumentFragment节点 // 很特殊的一个节点（暂时我还不清楚，google DocumentFragment优化）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.body.nodeType // 1</span><br><span class="line">document.nodeType // 9</span><br><span class="line">document.documentElement.nodetype // 1</span><br><span class="line">document.documentElement.nodeName // &apos;HTML&apos;</span><br><span class="line">// 所以document.documentElement才是html，document不是？</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>innerText</code>与<code>textContent</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent" target="_blank" rel="noopener">MDN</a><br>区别:</p>
 <ul>
-<li>textContent 会获取所有元素的内容，包括 <script> 和 <style> 元素，然而 innerText 不会。</li>
+<li>textContent 会获取所有元素的内容，包括 <code>&lt;script&gt; 和 &lt;style&gt;</code> 元素，然而 innerText 不会。</li>
 <li>innerText意识到样式，并且不会返回隐藏元素的文本(设置display:none的元素)，而textContent会。</li>
 <li>由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。</li>
 <li>与 textContent 不同的是, 在 Internet Explorer (对于小于等于 IE11 的版本) 中对 innerText 进行修改， 不仅会移除当前元素的子节点，而且还会永久性地破坏所有后代文本节点（所以不可能再次将节点再次插入到任何其他元素或同一元素中）。</li>
 </ul>
 </li>
-<li><p><code>childNodes</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList#A_sometimes-live_collection">MDN</a><br>Node.childNodes 返回包含指定节点的子节点的集合，该集合为即时更新的集合（live collection）。</p>
+<li><p><code>childNodes</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList#A_sometimes-live_collection" target="_blank" rel="noopener">MDN</a><br>Node.childNodes 返回包含指定节点的子节点的集合，该集合为即时更新的集合（live collection）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var parent = document.getElementById(&apos;parent&apos;);</span><br><span class="line">parent.childNodes.length // 2</span><br><span class="line">parent.appendChild(document.createElement(&apos;div&apos;));</span><br><span class="line">parent.childNodes.length // 请问现在 length 是多少</span><br><span class="line"></span><br><span class="line">// 3</span><br><span class="line"></span><br><span class="line">// 与之相反的是 querySelectorAll() ,它返回的是一个静态的 NodeList</span><br><span class="line">var allDiv = document.querySelectorAll(&apos;div&gt;</span><br><span class="line">allDiv.length // 假设是 2</span><br><span class="line">document.body.appendChild(  document.createElement(&apos;div&apos;)  )</span><br><span class="line">allDiv.length // 请问现在 length 的值是多少？？？</span><br><span class="line">// 2</span><br><span class="line">// querySelectorAll方法不属于 node，是document 和 element 的</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>HTMLCollection与NodeList的区别有</p>
@@ -351,7 +351,7 @@
 <li><code>replaceChild()</code></li>
 <li><code>normalize() // 常规化</code><br>基本看见名字就知道作用，不清楚也可以查MDN。</li>
 </ul>
-<h2 id="Document-Api-MDN"><a href="#Document-Api-MDN" class="headerlink" title="Document Api -MDN"></a>Document Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document">MDN</a></h2><h3 id="Document-属性"><a href="#Document-属性" class="headerlink" title="Document 属性"></a>Document 属性</h3><ul>
+<h2 id="Document-Api-MDN"><a href="#Document-Api-MDN" class="headerlink" title="Document Api -MDN"></a>Document Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document" target="_blank" rel="noopener">MDN</a></h2><h3 id="Document-属性"><a href="#Document-属性" class="headerlink" title="Document 属性"></a>Document 属性</h3><ul>
 <li>body</li>
 <li>characterSet</li>
 <li>childElementCount</li>
@@ -394,8 +394,8 @@
 <li>write()</li>
 <li>writeln()</li>
 </ul>
-<h2 id="Element-Api-MDN"><a href="#Element-Api-MDN" class="headerlink" title="Element Api -MDN"></a>Element Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element">MDN</a></h2><p>关于 DOM API 更多见之后写的常用 API。（待续）</p>
-</script></li></ul></li></ul>
+<h2 id="Element-Api-MDN"><a href="#Element-Api-MDN" class="headerlink" title="Element Api -MDN"></a>Element Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element" target="_blank" rel="noopener">MDN</a></h2><p>关于 DOM API 更多见之后写的常用 API。（待续）</p>
+
       
     </div>
     
@@ -481,10 +481,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -505,7 +505,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">11</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -541,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">1.</span> <span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-Api"><span class="nav-number">2.</span> <span class="nav-text">Node Api</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-属性"><span class="nav-number">2.1.</span> <span class="nav-text">Node 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几个要注意的-Node-Api"><span class="nav-number">2.2.</span> <span class="nav-text">几个要注意的 Node Api</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">1.</span> <span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-Api"><span class="nav-number">2.</span> <span class="nav-text">Node Api</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-属性"><span class="nav-number">2.1.</span> <span class="nav-text">Node 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几个要注意的-Node-Api"><span class="nav-number">2.2.</span> <span class="nav-text">几个要注意的 Node Api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-方法-（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"><span class="nav-number">2.3.</span> <span class="nav-text">Node 方法 （如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document-Api-MDN"><span class="nav-number">3.</span> <span class="nav-text">Document Api -MDN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Document-属性"><span class="nav-number">3.1.</span> <span class="nav-text">Document 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Document-方法："><span class="nav-number">3.2.</span> <span class="nav-text">Document 方法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-Api-MDN"><span class="nav-number">4.</span> <span class="nav-text">Element Api -MDN</span></a></li></ol></div>
             
 
           </div>
@@ -571,7 +571,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
