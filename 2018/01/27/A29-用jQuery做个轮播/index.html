@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/27/A29-用jQuery做个轮播/index.html">
 <meta property="og:site_name" content="zerolhao-blog">
 <meta property="og:description" content="这次我们将用jQuery做一个轮播在遵循原则：内容(HTML)、样式(CSS)、行为(JavaScript)分离的情况下 面试套路如果被问到你对于前端内容、样式、行为分离的理解。我们当然认为这是理所当然的，但是这么回答显然不行。所以，我们可以反着回答，如果不分离的话会有什么坏处，以此论证需要分离。例如：  HTML负责样式 12345&amp;lt;body bgcolor=&amp;quot;gray&amp;quot">
-<meta property="og:updated_time" content="2018-01-27T15:12:50.544Z">
+<meta property="og:updated_time" content="2018-01-28T13:04:36.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A29-用jQuery做个轮播">
 <meta name="twitter:description" content="这次我们将用jQuery做一个轮播在遵循原则：内容(HTML)、样式(CSS)、行为(JavaScript)分离的情况下 面试套路如果被问到你对于前端内容、样式、行为分离的理解。我们当然认为这是理所当然的，但是这么回答显然不行。所以，我们可以反着回答，如果不分离的话会有什么坏处，以此论证需要分离。例如：  HTML负责样式 12345&amp;lt;body bgcolor=&amp;quot;gray&amp;quot">
@@ -315,8 +315,28 @@
 <p>这种结果显然不符合我们的预期，这里，建议使用添加 class 的方式来控制，js 只负责行为，它不知道一个div应该怎么show，block？flex？<br>显示还是不显示？那是 css 的活。<br><code>$div.addClass(&#39;active&#39;)</code></p>
 </li>
 </ul>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ol>
+<li>将图片全部放到一个div里，把图片放平，图片最好是一样大小的</li>
+<li>然后用一个窗口来看图片，图片从左到右挨个出现，就好像以前的电影胶带</li>
+<li>有了思路，剩下的就是实现和改bug，这次是用jq来写，会出现很多不认识的api，直接查文档就行了</li>
+</ol>
+<h1 id="关于封装"><a href="#关于封装" class="headerlink" title="关于封装"></a>关于封装</h1><ol>
+<li>从 API 开始思考</li>
+<li>尽量能让人看见就明白是干嘛的</li>
+</ol>
+<h1 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h1><ul>
+<li><a href="https://zerolhao.github.io/task-code/A29-jQuery-carousel/index.html" target="_blank" rel="noopener">预览</a></li>
+<li><a href="https://github.com/zerolhao/task-code/tree/master/A29-jQuery-carousel" target="_blank" rel="noopener">代码</a></li>
+</ul>
 <h1 id="本次任务用到的-jQuery-API"><a href="#本次任务用到的-jQuery-API" class="headerlink" title="本次任务用到的 jQuery API"></a>本次任务用到的 jQuery API</h1><ol>
-<li><code>.on()</code> -<a href="http://api.jquery.com/on/" target="_blank" rel="noopener">link</a></li>
+<li><code>.on()</code> -<a href="https://www.jquery123.com/on/" target="_blank" rel="noopener">link</a></li>
+<li><code>index()</code> -<a href="https://www.jquery123.com/index/" target="_blank" rel="noopener">link</a></li>
+<li><code>.eq()</code> -<a href="https://www.jquery123.com/eq/" target="_blank" rel="noopener">link</a></li>
+<li><code>.trigger()</code> -<a href="https://www.jquery123.com/trigger/" target="_blank" rel="noopener">link</a></li>
+<li><code>.addClass()</code> -<a href="https://www.jquery123.com/addClass/" target="_blank" rel="noopener">link</a></li>
+<li><code>.removeClass()</code> -<a href="https://www.jquery123.com/removeClass/" target="_blank" rel="noopener">link</a></li>
+<li><code>.siblings()</code> -<a href="https://www.jquery123.com/siblings/" target="_blank" rel="noopener">link</a></li>
+<li><code>.css()</code> -<a href="https://www.jquery123.com/css/" target="_blank" rel="noopener">link</a></li>
 </ol>
 <h1 id="优化原则"><a href="#优化原则" class="headerlink" title="优化原则"></a>优化原则</h1><ol>
 <li>不使用 CSS 来表示复杂的行为，不要使用IE发明的CSS Expressions。</li>
@@ -471,7 +491,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#这次我们将用jQuery做一个轮播"><span class="nav-number">1.</span> <span class="nav-text">这次我们将用jQuery做一个轮播</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试套路"><span class="nav-number">1.1.</span> <span class="nav-text">面试套路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本次任务用到的-jQuery-API"><span class="nav-number">2.</span> <span class="nav-text">本次任务用到的 jQuery API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化原则"><span class="nav-number">3.</span> <span class="nav-text">优化原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#奇葩bug"><span class="nav-number">4.</span> <span class="nav-text">奇葩bug</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#这次我们将用jQuery做一个轮播"><span class="nav-number">1.</span> <span class="nav-text">这次我们将用jQuery做一个轮播</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试套路"><span class="nav-number">1.1.</span> <span class="nav-text">面试套路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于封装"><span class="nav-number">3.</span> <span class="nav-text">关于封装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成果"><span class="nav-number">4.</span> <span class="nav-text">成果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本次任务用到的-jQuery-API"><span class="nav-number">5.</span> <span class="nav-text">本次任务用到的 jQuery API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化原则"><span class="nav-number">6.</span> <span class="nav-text">优化原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#奇葩bug"><span class="nav-number">7.</span> <span class="nav-text">奇葩bug</span></a></li></ol></div>
             
 
           </div>
