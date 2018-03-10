@@ -228,6 +228,220 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/A27-DOM-API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zerolhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerolhao-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/A27-DOM-API/" itemprop="url">A27-DOM API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T22:23:28+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model" target="_blank" rel="noopener">MDN</a></li>
+<li><a href="http://javascript.ruanyifeng.com/dom/node.html" target="_blank" rel="noopener">阮一峰</a><br>什么是DOM，DOM最重要的就是要明白它的概念，否则遇到问题也不知道如何下手<br>大家都说DOM树，这是一个比喻，易于理解，<br>D就是文档，想象它是一个树状的结构（就像之前数据结构里的二叉树那样），树上有着节点（node）<br>O就是对象，<br>M也就是模型，把D和O做一个一一对应的映射，就是这个模型<br>所以DOM就是把文档变成一个对象<br><img src="http://upload-images.jianshu.io/upload_images/9047034-b2ba8fd51edc6b54.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="映射"><br><strong>上图红字</strong><br>DOM转化来的js对象里面到底存放什么由DOM标准规定<br>比如：<br>上图的 head、body、meta、link、h1、p 都是Element的实例<br>（中间存在其它函数，F12调试可见，比如document.body就是document.body.<strong>proto</strong>-&gt;HTMLBodyElement.prototype.<strong>proto</strong>-&gt;HTMLElement.prototype.<strong>proto</strong>-&gt;Element.prototype）<br>根节点html比较特殊，是由document构造的（DOucment-&gt;HTMLDocument,简写）<br>至于文本节点则是由</li>
+</ul>
+<h2 id="Node-Api"><a href="#Node-Api" class="headerlink" title="Node Api"></a>Node Api</h2><h3 id="Node-属性"><a href="#Node-属性" class="headerlink" title="Node 属性"></a>Node 属性</h3><p>记住以下单词；</p>
+<ul>
+<li>child / children / parent</li>
+<li>node </li>
+<li>first / last</li>
+<li>next / previous</li>
+<li>sibling / siblings</li>
+<li>type</li>
+<li>value / text / content</li>
+<li>inner / outer</li>
+<li>element<br>然后相互组合<br>一部分：childNodes,firstChild,innerText,lastChild,nextSibling,nodeName,nodeType,nodeValue,outerText,ownerDocument,parentElement,parentNode,previousSibling,textContent<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;&lt;/head&gt;</span><br><span class="line">  &lt;body&gt;&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">document.body.previousSibling // #text</span><br><span class="line">document.body.previousSibling.previousSibling // &lt;head&gt;&lt;/head&gt;</span><br><span class="line">docuemnt.body.previousElementSibling // &lt;head&gt;&lt;/head&gt;</span><br><span class="line">// 为什么previousSibling返回的是文本节点呢，这是因为本来dom是配对xml的，后来强行配对html</span><br><span class="line">// previousSibling是 Node 的属性，previousElementSibling是 Element 的属性</span><br><span class="line">// previousSibling 是本来就有的，previousElementSibling是后来加的</span><br><span class="line">// 类似的还有 nextSibling / nextElementSibling, firstChild / firstElementChild 等等</span><br><span class="line">// 可以在F12中尝试，控制台会显示提示以及该属性属于哪个对象</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="几个要注意的-Node-Api"><a href="#几个要注意的-Node-Api" class="headerlink" title="几个要注意的 Node Api"></a>几个要注意的 Node Api</h3><ul>
+<li><code>nodeName</code><br>注意这个api很奇葩<br><code>document.body.nodeName // &#39;BODY</code><br><code>document.documentElement.nodeName // &#39;HTML</code><br><code>document.nodeName不行，必须像上面那样写</code><br>它对所有标签返回名称都是大写<br><strong>但是！唯有svg，它返回小写</strong><br><code>document.getElementsByTagName(&#39;svg&#39;)[0] // &#39;svg&#39;</code><br>这是因为svg是‘外来的’标签，它是后来新加的，然后就这么小写了……</li>
+<li><p><code>nodeType</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a><br>只读属性 Node.nodeType 表示的是该节点的类型。其所有可能的值请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType#%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B%E5%B8%B8%E9%87%8F" target="_blank" rel="noopener">节点类型常量.</a><br>它返回一个整数来表示节点的类型<br>(之所以这样是因为当年的计算机还没这么发达，而1比element的字节小多了)<br>以下几个需知：<br>1  元素节点， Eg：<code>&lt;div&gt;、&lt;p&gt;</code><br>3  文本节点， 元素或者属性中实际的文字，比如<code>&lt;p&gt;段落&lt;/p&gt;</code>中的段落二字<br>9  Document节点，<br>11 DocumentFragment节点 // 很特殊的一个节点（暂时我还不清楚，google DocumentFragment优化）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.body.nodeType // 1</span><br><span class="line">document.nodeType // 9</span><br><span class="line">document.documentElement.nodetype // 1</span><br><span class="line">document.documentElement.nodeName // &apos;HTML&apos;</span><br><span class="line">// 所以document.documentElement才是html，document不是？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>innerText</code>与<code>textContent</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent" target="_blank" rel="noopener">MDN</a><br>区别:</p>
+<ul>
+<li>textContent 会获取所有元素的内容，包括 <code>&lt;script&gt; 和 &lt;style&gt;</code> 元素，然而 innerText 不会。</li>
+<li>innerText意识到样式，并且不会返回隐藏元素的文本(设置display:none的元素)，而textContent会。</li>
+<li>由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。</li>
+<li>与 textContent 不同的是, 在 Internet Explorer (对于小于等于 IE11 的版本) 中对 innerText 进行修改， 不仅会移除当前元素的子节点，而且还会永久性地破坏所有后代文本节点（所以不可能再次将节点再次插入到任何其他元素或同一元素中）。</li>
+</ul>
+</li>
+<li><p><code>childNodes</code> -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList#A_sometimes-live_collection" target="_blank" rel="noopener">MDN</a><br>Node.childNodes 返回包含指定节点的子节点的集合，该集合为即时更新的集合（live collection）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var parent = document.getElementById(&apos;parent&apos;);</span><br><span class="line">parent.childNodes.length // 2</span><br><span class="line">parent.appendChild(document.createElement(&apos;div&apos;));</span><br><span class="line">parent.childNodes.length // 请问现在 length 是多少</span><br><span class="line"></span><br><span class="line">// 3</span><br><span class="line"></span><br><span class="line">// 与之相反的是 querySelectorAll() ,它返回的是一个静态的 NodeList</span><br><span class="line">var allDiv = document.querySelectorAll(&apos;div&gt;</span><br><span class="line">allDiv.length // 假设是 2</span><br><span class="line">document.body.appendChild(  document.createElement(&apos;div&apos;)  )</span><br><span class="line">allDiv.length // 请问现在 length 的值是多少？？？</span><br><span class="line">// 2</span><br><span class="line">// querySelectorAll方法不属于 node，是document 和 element 的</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HTMLCollection与NodeList的区别有</p>
+<ul>
+<li>HTMLCollection实例对象的成员只能是Element节点，NodeList实例对象的成员可以包含其他节点。</li>
+<li>HTMLCollection实例对象可以用id属性或name属性引用节点元素，NodeList只能使用数字索引引用。</li>
+<li>HTML DOM 中的 HTMLCollection 是即时更新的（live）；<br>当其所包含的文档结构发生改变时，它会自动更新。<br>NodeList 对象大多数情况下是个实时集合。<br>意思是说，如果文档中的节点树发生变化，则已经存在的 NodeList 对象也可能会变化。例如，Node.childNodes 是实时的。<br>在另一些情况下，NodeList 是一个静态集合，也就意味着随后对文档对象模型的任何改动都不会影响集合的内容。document.querySelectorAll 返回一个静态的 NodeList。<h3 id="Node-方法-（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"><a href="#Node-方法-（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）" class="headerlink" title="Node 方法 （如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"></a>Node 方法 （如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</h3></li>
+</ul>
+</li>
+<li><code>appendChild()</code></li>
+<li><code>cloneNode() // 分深、浅拷贝</code></li>
+<li><code>contains()</code></li>
+<li><code>hasChildNodes()</code></li>
+<li><code>insertBefore()</code></li>
+<li><code>isEqualNode() // 看起来相等</code></li>
+<li><code>isSameNode() // 完全相等，可以用 === 来代替</code></li>
+<li><code>removeChild()</code></li>
+<li><code>replaceChild()</code></li>
+<li><code>normalize() // 常规化</code><br>基本看见名字就知道作用，不清楚也可以查MDN。</li>
+</ul>
+<h2 id="Document-Api-MDN"><a href="#Document-Api-MDN" class="headerlink" title="Document Api -MDN"></a>Document Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document" target="_blank" rel="noopener">MDN</a></h2><h3 id="Document-属性"><a href="#Document-属性" class="headerlink" title="Document 属性"></a>Document 属性</h3><ul>
+<li>body</li>
+<li>characterSet</li>
+<li>childElementCount</li>
+<li>children</li>
+<li>doctype</li>
+<li>documentElement</li>
+<li>domain</li>
+<li>fullscreen</li>
+<li>head</li>
+<li>hidden</li>
+<li>images</li>
+<li>links</li>
+<li>location</li>
+<li>onxxxxxxxxx</li>
+<li>origin</li>
+<li>plugins</li>
+<li>readyState</li>
+<li>referrer</li>
+<li>scripts</li>
+<li>scrollingElement</li>
+<li>styleSheets</li>
+<li>title</li>
+<li>visibilityState<h3 id="Document-方法："><a href="#Document-方法：" class="headerlink" title="Document 方法："></a>Document 方法：</h3></li>
+<li>close()</li>
+<li>createDocumentFragment()</li>
+<li>createElement()</li>
+<li>createTextNode()</li>
+<li>execCommand()</li>
+<li>exitFullscreen()</li>
+<li>getElementById()</li>
+<li>getElementsByClassName()</li>
+<li>getElementsByName()</li>
+<li>getElementsByTagName()</li>
+<li>getSelection()</li>
+<li>hasFocus()</li>
+<li>open()</li>
+<li>querySelector()</li>
+<li>querySelectorAll()</li>
+<li>registerElement()</li>
+<li>write()</li>
+<li>writeln()</li>
+</ul>
+<h2 id="Element-Api-MDN"><a href="#Element-Api-MDN" class="headerlink" title="Element Api -MDN"></a>Element Api -<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element" target="_blank" rel="noopener">MDN</a></h2><p>关于 DOM API 更多见之后写的常用 API。（待续）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/A26-JS函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1808,139 +2022,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zerolhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerolhao-blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/23/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T22:58:49+08:00">
-                2017-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1986,7 +2072,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
