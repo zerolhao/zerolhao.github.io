@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,DOM-API," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="DOM MDN 阮一峰什么是DOM，DOM最重要的就是要明白它的概念，否则遇到问题也不知道如何下手大家都说DOM树，这是一个比喻，易于理解，D就是文档，想象它是一个树状的结构（就像之前数据结构里的二叉树那样），树上有着节点（node）O就是对象，M也就是模型，把D和O做一个一一对应的映射，就是这个模型所以DOM就是把文">
+<meta name="keywords" content="JavaScript,DOM-API">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A27-DOM API">
 <meta property="og:url" content="http://yoursite.com/2018/01/25/A27-DOM-API/index.html">
 <meta property="og:site_name" content="zerolhao-blog">
 <meta property="og:description" content="DOM MDN 阮一峰什么是DOM，DOM最重要的就是要明白它的概念，否则遇到问题也不知道如何下手大家都说DOM树，这是一个比喻，易于理解，D就是文档，想象它是一个树状的结构（就像之前数据结构里的二叉树那样），树上有着节点（node）O就是对象，M也就是模型，把D和O做一个一一对应的映射，就是这个模型所以DOM就是把文档变成一个对象上图红字DOM转化来的js对象里面到底存放什么由DOM标准规定比如">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9047034-b2ba8fd51edc6b54.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-25T15:09:25.606Z">
+<meta property="og:updated_time" content="2018-03-12T09:09:53.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A27-DOM API">
 <meta name="twitter:description" content="DOM MDN 阮一峰什么是DOM，DOM最重要的就是要明白它的概念，否则遇到问题也不知道如何下手大家都说DOM树，这是一个比喻，易于理解，D就是文档，想象它是一个树状的结构（就像之前数据结构里的二叉树那样），树上有着节点（node）O就是对象，M也就是模型，把D和O做一个一一对应的映射，就是这个模型所以DOM就是把文档变成一个对象上图红字DOM转化来的js对象里面到底存放什么由DOM标准规定比如">
@@ -186,7 +187,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -206,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -216,7 +217,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -290,7 +291,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T22:23:28+08:00">
                 2018-01-25
@@ -302,6 +303,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jirengu/" itemprop="url" rel="index">
+                    <span itemprop="name">饥人谷</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -440,6 +463,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/DOM-API/" rel="tag"># DOM-API</a>
+          
+        </div>
+      
 
       
       
@@ -515,10 +546,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -539,7 +570,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">22</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -550,7 +581,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -560,8 +591,8 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">Tags</span>
                 </a>
               </div>
             
@@ -623,7 +654,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

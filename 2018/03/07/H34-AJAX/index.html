@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="AJAX,JSON,同源策略,CORS,跨域," />
 
 
 
@@ -80,12 +80,13 @@
 
 
 <meta name="description" content="如何发请求？用 form 可以发请求，但是会刷新页面或新开页面用 a 可以发 get 请求，但是也会刷新页面或新开页面用 img 可以发 get 请求，但是只能以图片的形式展示用 link 可以发 get 请求，但是只能以 CSS、favicon 的形式展示用 script 可以发 get 请求，但是只能以脚本的形式运">
+<meta name="keywords" content="AJAX,JSON,同源策略,CORS,跨域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H34-AJAX">
 <meta property="og:url" content="http://yoursite.com/2018/03/07/H34-AJAX/index.html">
 <meta property="og:site_name" content="zerolhao-blog">
 <meta property="og:description" content="如何发请求？用 form 可以发请求，但是会刷新页面或新开页面用 a 可以发 get 请求，但是也会刷新页面或新开页面用 img 可以发 get 请求，但是只能以图片的形式展示用 link 可以发 get 请求，但是只能以 CSS、favicon 的形式展示用 script 可以发 get 请求，但是只能以脚本的形式运行 有没有什么方式可以实现  get、post、put、delete 请求都行">
-<meta property="og:updated_time" content="2018-03-07T12:41:23.576Z">
+<meta property="og:updated_time" content="2018-03-12T09:18:53.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H34-AJAX">
 <meta name="twitter:description" content="如何发请求？用 form 可以发请求，但是会刷新页面或新开页面用 a 可以发 get 请求，但是也会刷新页面或新开页面用 img 可以发 get 请求，但是只能以图片的形式展示用 link 可以发 get 请求，但是只能以 CSS、favicon 的形式展示用 script 可以发 get 请求，但是只能以脚本的形式运行 有没有什么方式可以实现  get、post、put、delete 请求都行">
@@ -184,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -204,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -214,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -288,7 +289,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-07T11:16:05+08:00">
                 2018-03-07
@@ -300,6 +301,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jirengu/" itemprop="url" rel="index">
+                    <span itemprop="name">饥人谷</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -421,6 +444,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/AJAX/" rel="tag"># AJAX</a>
+          
+            <a href="/tags/JSON/" rel="tag"># JSON</a>
+          
+            <a href="/tags/同源策略/" rel="tag"># 同源策略</a>
+          
+            <a href="/tags/CORS/" rel="tag"># CORS</a>
+          
+            <a href="/tags/跨域/" rel="tag"># 跨域</a>
+          
+        </div>
+      
 
       
       
@@ -496,10 +533,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -520,7 +557,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">22</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -531,7 +568,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -541,8 +578,8 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">Tags</span>
                 </a>
               </div>
             
@@ -604,7 +641,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
