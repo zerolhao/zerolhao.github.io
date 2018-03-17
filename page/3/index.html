@@ -258,6 +258,190 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/24/Hexo+GitHub博客搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zerolhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerolhao-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/24/Hexo+GitHub博客搭建/" itemprop="url">Hexo+GitHub博客搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-24T20:24:08+08:00">
+                2017-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="如何使用Hexo-GitHub搭建一个博客"><a href="#如何使用Hexo-GitHub搭建一个博客" class="headerlink" title="如何使用Hexo+GitHub搭建一个博客"></a>如何使用Hexo+GitHub搭建一个博客</h2><p>首先要声明的是本文默认你已经有git账号并且已经搞定ssh之类。</p>
+<h6 id="并且是仅有一个git账户或者本机只有一个git全局账户的情况下！！！（至于为何……因为我还没搞定一套电脑两个账户怎么折腾……）"><a href="#并且是仅有一个git账户或者本机只有一个git全局账户的情况下！！！（至于为何……因为我还没搞定一套电脑两个账户怎么折腾……）" class="headerlink" title="并且是仅有一个git账户或者本机只有一个git全局账户的情况下！！！（至于为何……因为我还没搞定一套电脑两个账户怎么折腾……）"></a>并且是仅有一个git账户或者本机只有一个git全局账户的情况下！！！（至于为何……因为我还没搞定一套电脑两个账户怎么折腾……）</h6><h3 id="以下是步骤"><a href="#以下是步骤" class="headerlink" title="以下是步骤"></a>以下是步骤</h3><ol>
+<li>在github上新建一个空的repo，repo 名称是「你的用户名.github.io」（请将你的用户名替换成真正的用户名）</li>
+<li><p>进入一个安全的目录，你可以在D盘或者其它某个磁盘下创建一个文件夹，然后进入这个文件夹，比如我是D盘：<br>打开git bash</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd d:</span><br><span class="line">mkdir myblog</span><br><span class="line">cd myblog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后安装hexo<br><code>npm install -g hexo-cli</code></p>
+</li>
+<li>初始化，<code>hexo init</code></li>
+<li>安装（我也不知道安装什么），<code>npm i</code></li>
+<li><code>hexo new 开博大吉</code>,你会看见一个md文件的路径</li>
+<li><code>start xxxxxxxxx.md</code>,编辑这个md文件，你也可以手动去翻文件夹然后编辑</li>
+<li><code>start _config.yml</code>,编辑网站配置<ol>
+<li>把第六行的title改成你想要的名字</li>
+<li>把第九行的author改成你的名字</li>
+<li>把最后一行的type改成type: git</li>
+<li>在最后一行后面新增一行，左边与 type 平齐，加上一行<code>repo: 仓库地址</code><br>请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 git@github.com: 开头</li>
+</ol>
+</li>
+<li><code>npm install hexo-deployer-git --save</code>,安装git部署插件</li>
+<li><code>hexo deploy</code></li>
+<li>进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，默认应该是打开的，如果是，就直接点击预览</li>
+<li>你现在应该看到了你的博客!</li>
+</ol>
+<h3 id="第二篇博客"><a href="#第二篇博客" class="headerlink" title="第二篇博客"></a>第二篇博客</h3><ol>
+<li><code>hexo new 第二篇博客</code></li>
+<li>复制显示路径。使用<code>start 路径</code>来编辑它</li>
+<li><code>hexo generate</code></li>
+<li><code>hexo deploy</code></li>
+<li>去看看你的博客，应该能看见第二篇博客了</li>
+</ol>
+<h3 id="换主题"><a href="#换主题" class="headerlink" title="换主题"></a>换主题</h3><ol>
+<li><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">主题</a> 这是一个主题合集</li>
+<li>随便找一个主题合集，进入主题的github首页,比如我找的是<br><a href="git@github.com:xiangming/landscape-plus.git">git@github.com:xiangming/landscape-plus.git</a></li>
+<li>复制它的 SSH 地址或 HTTPS 地址，假设地址为 git@github.com:iissnan/hexo-theme-next.git</li>
+<li><code>cd themes</code></li>
+<li><code>git clone git@github.com:iissnan/hexo-theme-next.git</code></li>
+<li><code>cd ..</code></li>
+<li>将 _config.yml 的第 75 行改为 <code>theme: landscape-plus.git</code>,保存</li>
+<li><code>hexo g</code></li>
+<li><code>hexo d</code></li>
+<li>等上一会，然后刷新你的博客页面，你就会看到一个新的外观。如果不喜欢这个主题，就回到第一步，重选一个主题再来一遍。</li>
+</ol>
+<h6 id="以上就是使用Hexo配合GitHub搭建个人博客的教程了。"><a href="#以上就是使用Hexo配合GitHub搭建个人博客的教程了。" class="headerlink" title="以上就是使用Hexo配合GitHub搭建个人博客的教程了。"></a>以上就是使用Hexo配合GitHub搭建个人博客的教程了。</h6>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/第二篇博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -683,7 +867,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -705,7 +889,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">Tags</span>
                 </a>
               </div>
