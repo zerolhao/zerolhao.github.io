@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Accueil
           </a>
         </li>
       
@@ -287,7 +287,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T23:26:57+08:00">
                 2018-03-19
@@ -502,7 +502,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-17T23:11:19+08:00">
                 2018-03-17
@@ -566,10 +566,18 @@
       
         
           
-            <h1 id="Cookie-的特点"><a href="#Cookie-的特点" class="headerlink" title="Cookie 的特点"></a>Cookie 的特点</h1><ol>
+            <h1 id="登录与注册"><a href="#登录与注册" class="headerlink" title="登录与注册"></a>登录与注册</h1><p><a href="https://github.com/zerolhao/node-demo/tree/master/H43-Cookie%E4%B8%8E%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C" target="_blank" rel="noopener">代码</a></p>
+<h1 id="Cookie-的特点"><a href="#Cookie-的特点" class="headerlink" title="Cookie 的特点"></a>Cookie 的特点</h1><ol>
 <li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
 <li>浏览器得到 Cookie 之后，每次请求都要带上 Cookie</li>
 <li>服务器读取 Cookie 就知道登录用户的信息（email）<br><a href="https://www.wikiwand.com/zh/Cookie" target="_blank" rel="noopener">wiki</a><br><a href="https://zhuanlan.zhihu.com/p/22396872?refer=study-fe" target="_blank" rel="noopener">方应杭</a></li>
+</ol>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>我在 Chrome 登录了得到 Cookie，用 Safari 访问，Safari 会带上 Cookie 吗<br>no</li>
+<li>Cookie 存在哪<br>Windows 存在 C 盘的一个文件里</li>
+<li>Cookie会被用户篡改吗？<br>可以，下节课会讲 Session 来解决这个问题，防止用户篡改</li>
+<li>Cookie 有效期吗？<br>默认有效期20分钟左右，不同浏览器策略不同<br>后端可以强制设置有效期，具体语法看 MDN</li>
+<li>Cookie 遵守同源策略吗？<br>也有，不过跟 AJAX 的同源策略稍微有些不同。<br>当请求 qq.com 下的资源时，浏览器会默认带上 qq.com 对应的 Cookie，不会带上 baidu.com 对应的 Cookie<br>当请求 v.qq.com 下的资源时，浏览器不仅会带上 v.qq.com 的Cookie，还会带上 qq.com 的 Cookie<br>另外 Cookie 还可以根据路径做限制，请自行了解，这个功能用得比较少。</li>
 </ol>
 <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><p><strong>jQuery</strong></p>
 <ul>
@@ -663,7 +671,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T21:23:12+08:00">
                 2018-03-14
@@ -816,7 +824,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-10T23:54:07+08:00">
                 2018-03-10
@@ -974,7 +982,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-10T14:17:35+08:00">
                 2018-03-10
@@ -1137,7 +1145,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-09T00:04:37+08:00">
                 2018-03-09
@@ -1316,7 +1324,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-07T23:56:22+08:00">
                 2018-03-07
@@ -1494,7 +1502,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-07T11:16:05+08:00">
                 2018-03-07
@@ -1713,7 +1721,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T21:13:53+08:00">
                 2018-03-05
@@ -1889,7 +1897,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T21:09:36+08:00">
                 2018-03-05
@@ -2050,7 +2058,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">articles</span>
                 </a>
               </div>
             
@@ -2126,7 +2134,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Thème &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 

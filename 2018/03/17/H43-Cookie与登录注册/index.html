@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Cookie 的特点 服务器通过 Set-Cookie 响应头设置 Cookie 浏览器得到 Cookie 之后，每次请求都要带上 Cookie 服务器读取 Cookie 就知道登录用户的信息（email）wiki方应杭  APIjQuery  .find() .val() $.ajax() $.post() .eac">
+<meta name="description" content="登录与注册代码 Cookie 的特点 服务器通过 Set-Cookie 响应头设置 Cookie 浏览器得到 Cookie 之后，每次请求都要带上 Cookie 服务器读取 Cookie 就知道登录用户的信息（email）wiki方应杭  问题 我在 Chrome 登录了得到 Cookie，用 Safari 访问，Sa">
 <meta name="keywords" content="HTTP,nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H43-Cookie与登录注册">
 <meta property="og:url" content="http://yoursite.com/2018/03/17/H43-Cookie与登录注册/index.html">
 <meta property="og:site_name" content="zerolhao-blog">
-<meta property="og:description" content="Cookie 的特点 服务器通过 Set-Cookie 响应头设置 Cookie 浏览器得到 Cookie 之后，每次请求都要带上 Cookie 服务器读取 Cookie 就知道登录用户的信息（email）wiki方应杭  APIjQuery  .find() .val() $.ajax() $.post() .each()JavaScript decodeURIComponent() try…c">
-<meta property="og:updated_time" content="2018-03-17T15:15:13.006Z">
+<meta property="og:description" content="登录与注册代码 Cookie 的特点 服务器通过 Set-Cookie 响应头设置 Cookie 浏览器得到 Cookie 之后，每次请求都要带上 Cookie 服务器读取 Cookie 就知道登录用户的信息（email）wiki方应杭  问题 我在 Chrome 登录了得到 Cookie，用 Safari 访问，Safari 会带上 Cookie 吗no Cookie 存在哪Windows 存在">
+<meta property="og:updated_time" content="2018-03-20T08:56:54.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H43-Cookie与登录注册">
-<meta name="twitter:description" content="Cookie 的特点 服务器通过 Set-Cookie 响应头设置 Cookie 浏览器得到 Cookie 之后，每次请求都要带上 Cookie 服务器读取 Cookie 就知道登录用户的信息（email）wiki方应杭  APIjQuery  .find() .val() $.ajax() $.post() .each()JavaScript decodeURIComponent() try…c">
+<meta name="twitter:description" content="登录与注册代码 Cookie 的特点 服务器通过 Set-Cookie 响应头设置 Cookie 浏览器得到 Cookie 之后，每次请求都要带上 Cookie 服务器读取 Cookie 就知道登录用户的信息（email）wiki方应杭  问题 我在 Chrome 登录了得到 Cookie，用 Safari 访问，Safari 会带上 Cookie 吗no Cookie 存在哪Windows 存在">
 
 
 
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Accueil
           </a>
         </li>
       
@@ -289,7 +289,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-17T23:11:19+08:00">
                 2018-03-17
@@ -351,10 +351,18 @@
       
 
       
-        <h1 id="Cookie-的特点"><a href="#Cookie-的特点" class="headerlink" title="Cookie 的特点"></a>Cookie 的特点</h1><ol>
+        <h1 id="登录与注册"><a href="#登录与注册" class="headerlink" title="登录与注册"></a>登录与注册</h1><p><a href="https://github.com/zerolhao/node-demo/tree/master/H43-Cookie%E4%B8%8E%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C" target="_blank" rel="noopener">代码</a></p>
+<h1 id="Cookie-的特点"><a href="#Cookie-的特点" class="headerlink" title="Cookie 的特点"></a>Cookie 的特点</h1><ol>
 <li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
 <li>浏览器得到 Cookie 之后，每次请求都要带上 Cookie</li>
 <li>服务器读取 Cookie 就知道登录用户的信息（email）<br><a href="https://www.wikiwand.com/zh/Cookie" target="_blank" rel="noopener">wiki</a><br><a href="https://zhuanlan.zhihu.com/p/22396872?refer=study-fe" target="_blank" rel="noopener">方应杭</a></li>
+</ol>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>我在 Chrome 登录了得到 Cookie，用 Safari 访问，Safari 会带上 Cookie 吗<br>no</li>
+<li>Cookie 存在哪<br>Windows 存在 C 盘的一个文件里</li>
+<li>Cookie会被用户篡改吗？<br>可以，下节课会讲 Session 来解决这个问题，防止用户篡改</li>
+<li>Cookie 有效期吗？<br>默认有效期20分钟左右，不同浏览器策略不同<br>后端可以强制设置有效期，具体语法看 MDN</li>
+<li>Cookie 遵守同源策略吗？<br>也有，不过跟 AJAX 的同源策略稍微有些不同。<br>当请求 qq.com 下的资源时，浏览器会默认带上 qq.com 对应的 Cookie，不会带上 baidu.com 对应的 Cookie<br>当请求 v.qq.com 下的资源时，浏览器不仅会带上 v.qq.com 的Cookie，还会带上 qq.com 的 Cookie<br>另外 Cookie 还可以根据路径做限制，请自行了解，这个功能用得比较少。</li>
 </ol>
 <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><p><strong>jQuery</strong></p>
 <ul>
@@ -469,10 +477,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Table Des Matières
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Ensemble
           </li>
         </ul>
       
@@ -493,7 +501,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">articles</span>
                 </a>
               </div>
             
@@ -547,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie-的特点"><span class="nav-number">1.</span> <span class="nav-text">Cookie 的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#登录与注册"><span class="nav-number">1.</span> <span class="nav-text">登录与注册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie-的特点"><span class="nav-number">2.</span> <span class="nav-text">Cookie 的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">3.</span> <span class="nav-text">API</span></a></li></ol></div>
             
 
           </div>
@@ -585,7 +593,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Thème &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
