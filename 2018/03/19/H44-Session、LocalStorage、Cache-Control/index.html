@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。知乎Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段">
+<meta name="description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。区别：Cookie 保存在客户端，每次都随请求发送给 ServerSession 保存在 Server 的内存里，其 Session ID 是通过 Cookie 发送给客">
 <meta name="keywords" content="HTTP,Session,Cookie,LocalStroage,SessionStorage,Cache-Control,Expires,ETag">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H44-Session、LocalStorage、Cache-Control">
 <meta property="og:url" content="http://yoursite.com/2018/03/19/H44-Session、LocalStorage、Cache-Control/index.html">
 <meta property="og:site_name" content="zerolhao-blog">
-<meta property="og:description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。知乎Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段时间内保存这个Cookie Cookie 默认在用户关闭页面后就失效，后台代码可">
-<meta property="og:updated_time" content="2018-03-20T08:55:04.728Z">
+<meta property="og:description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。区别：Cookie 保存在客户端，每次都随请求发送给 ServerSession 保存在 Server 的内存里，其 Session ID 是通过 Cookie 发送给客户端的 知乎Cookie本质是HTTP协议的一个内容  服务器通过 Set-Co">
+<meta property="og:updated_time" content="2018-03-20T15:03:45.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H44-Session、LocalStorage、Cache-Control">
-<meta name="twitter:description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。知乎Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段时间内保存这个Cookie Cookie 默认在用户关闭页面后就失效，后台代码可">
+<meta name="twitter:description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。区别：Cookie 保存在客户端，每次都随请求发送给 ServerSession 保存在 Server 的内存里，其 Session ID 是通过 Cookie 发送给客户端的 知乎Cookie本质是HTTP协议的一个内容  服务器通过 Set-Co">
 
 
 
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -289,7 +289,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T23:26:57+08:00">
                 2018-03-19
@@ -310,7 +310,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -352,7 +352,8 @@
 
       
         <h1 id="Cookie-存在的问题"><a href="#Cookie-存在的问题" class="headerlink" title="Cookie 存在的问题"></a>Cookie 存在的问题</h1><p>用户可以随意篡改 Cookie</p>
-<h1 id="Session-与-Cookie-的关系"><a href="#Session-与-Cookie-的关系" class="headerlink" title="Session 与 Cookie 的关系"></a>Session 与 Cookie 的关系</h1><p>一般来说，Session 基于 Cookie 来实现。<br><a href="https://www.zhihu.com/question/19786827" target="_blank" rel="noopener">知乎</a><br><em>Cookie</em><br>本质是HTTP协议的一个内容</p>
+<h1 id="Session-与-Cookie-的关系"><a href="#Session-与-Cookie-的关系" class="headerlink" title="Session 与 Cookie 的关系"></a>Session 与 Cookie 的关系</h1><p>一般来说，Session 基于 Cookie 来实现。<br>区别：<br>Cookie 保存在客户端，每次都随请求发送给 Server<br>Session 保存在 Server 的内存里，其 Session ID 是通过 Cookie 发送给客户端的</p>
+<p><a href="https://www.zhihu.com/question/19786827" target="_blank" rel="noopener">知乎</a><br><em>Cookie</em><br>本质是HTTP协议的一个内容</p>
 <ol>
 <li>服务器通过 Set-Cookie 头给客户端一串字符串</li>
 <li>客户端每次访问相同域名的网页时，必须带上这段字符串</li>
@@ -531,10 +532,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table Des Matières
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Ensemble
+            Übersicht
           </li>
         </ul>
       
@@ -555,7 +556,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">articles</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -566,7 +567,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -577,7 +578,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">36</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 </a>
               </div>
             
@@ -639,7 +640,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -647,7 +648,7 @@
 
 
 
-  <div class="theme-info">Thème &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
