@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HTTP,Session,Cookie,LocalStroage,Cache-Control," />
+  <meta name="keywords" content="HTTP,Session,Cookie,LocalStroage,SessionStorage,Cache-Control,Expires,ETag," />
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。 Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段时">
-<meta name="keywords" content="HTTP,Session,Cookie,LocalStroage,Cache-Control">
+<meta name="description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。知乎Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段">
+<meta name="keywords" content="HTTP,Session,Cookie,LocalStroage,SessionStorage,Cache-Control,Expires,ETag">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H44-Session、LocalStorage、Cache-Control">
 <meta property="og:url" content="http://yoursite.com/2018/03/19/H44-Session、LocalStorage、Cache-Control/index.html">
 <meta property="og:site_name" content="zerolhao-blog">
-<meta property="og:description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。 Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段时间内保存这个Cookie Cookie 默认在用户关闭页面后就失效，后台代码可以">
-<meta property="og:updated_time" content="2018-03-19T15:28:16.110Z">
+<meta property="og:description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。知乎Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段时间内保存这个Cookie Cookie 默认在用户关闭页面后就失效，后台代码可">
+<meta property="og:updated_time" content="2018-03-20T08:49:40.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H44-Session、LocalStorage、Cache-Control">
-<meta name="twitter:description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。 Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段时间内保存这个Cookie Cookie 默认在用户关闭页面后就失效，后台代码可以">
+<meta name="twitter:description" content="Cookie 存在的问题用户可以随意篡改 Cookie Session 与 Cookie 的关系一般来说，Session 基于 Cookie 来实现。知乎Cookie本质是HTTP协议的一个内容  服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段时间内保存这个Cookie Cookie 默认在用户关闭页面后就失效，后台代码可">
 
 
 
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -289,7 +289,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T23:26:57+08:00">
                 2018-03-19
@@ -310,7 +310,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -352,8 +352,7 @@
 
       
         <h1 id="Cookie-存在的问题"><a href="#Cookie-存在的问题" class="headerlink" title="Cookie 存在的问题"></a>Cookie 存在的问题</h1><p>用户可以随意篡改 Cookie</p>
-<h1 id="Session-与-Cookie-的关系"><a href="#Session-与-Cookie-的关系" class="headerlink" title="Session 与 Cookie 的关系"></a>Session 与 Cookie 的关系</h1><p>一般来说，Session 基于 Cookie 来实现。</p>
-<p>Cookie<br>本质是HTTP协议的一个内容</p>
+<h1 id="Session-与-Cookie-的关系"><a href="#Session-与-Cookie-的关系" class="headerlink" title="Session 与 Cookie 的关系"></a>Session 与 Cookie 的关系</h1><p>一般来说，Session 基于 Cookie 来实现。<br><a href="https://www.zhihu.com/question/19786827" target="_blank" rel="noopener">知乎</a><br><em>Cookie</em><br>本质是HTTP协议的一个内容</p>
 <ol>
 <li>服务器通过 Set-Cookie 头给客户端一串字符串</li>
 <li>客户端每次访问相同域名的网页时，必须带上这段字符串</li>
@@ -361,7 +360,7 @@
 <li>Cookie 默认在用户关闭页面后就失效，后台代码可以任意设置 Cookie 的过期时间</li>
 <li>大小大概在 4kb 以内</li>
 </ol>
-<p>Session</p>
+<p><em>Session</em>（不翻译）</p>
 <ol>
 <li>将 SessionID（随机数）通过 Cookie 发给客户端</li>
 <li>客户端访问服务器时，服务器读取 SessionID</li>
@@ -369,12 +368,64 @@
 <li>通过 SessionID 我们可以得到对应用户的隐私信息，如 id、email</li>
 <li>这块内存（哈希表）就是服务器上的所有 session<br>缺点：用户太多的话占内存高（cookie不占内存）</li>
 </ol>
-<h1 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h1><p>localStorage就是HTML5的API<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage" target="_blank" rel="noopener">MDN</a></p>
-<h2 id="使用-localStroage"><a href="#使用-localStroage" class="headerlink" title="使用 localStroage"></a>使用 localStroage</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var a = localStroage.getItem(&apos;a&apos;)</span><br><span class="line">  if(!a)&#123;</span><br><span class="line">    a = 0</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    a = parseInt(a,10) + 1</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(&apos;a&apos;,a)</span><br><span class="line">  localStroage.setItem(&apos;a&apos;,a)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>原本页面刷新后变量全部清掉了，但是现在a被localstroage保存下来了（在c盘的一个文件里）<br>这叫做持久化储存</p>
-<p><em>常用的一种方式</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  let already = localStroage.getItem(&apos;已经提示了&apos;)</span><br><span class="line">  if(!already)&#123;</span><br><span class="line">    alert(&apos;你好，我们的网站已经改版了，有了这些功能：……&apos;)</span><br><span class="line">    localStroage.setItem(&apos;已经提示了&apos;,true)</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="不基于-cookie-的-session"><a href="#不基于-cookie-的-session" class="headerlink" title="不基于 cookie 的 session"></a>不基于 cookie 的 session</h2><p>使用查询参数和localstorage来实现</p>
+<p><strong>建议：前端不建议读写cookie，那是后端的事</strong></p>
+<h1 id="web-Storage"><a href="#web-Storage" class="headerlink" title="web Storage"></a><a href="http://javascript.ruanyifeng.com/bom/webstorage.html" target="_blank" rel="noopener">web Storage</a></h1><p><em>window.localStorage</em><br>localStorage就是HTML5的API<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage" target="_blank" rel="noopener">MDN</a></p>
+<ol>
+<li>localStorage 跟 HTTP 无关</li>
+<li>HTTP 不会带上 LocalStorage 的值</li>
+<li>只有相同域名的页面才能互相读取 LocalStorage （没有同源那么严格）</li>
+<li>每个域名 localStorge 最大存储量为 5Mb 左右（每个浏览器不一样） </li>
+<li>常用场景：记录有没有提示过用户（没有用的信息，不能记录密码）</li>
+<li>LocalStorage 永久有效，除非用户清理</li>
+</ol>
+<p><em>window.sessionStorage</em>（会话存储）<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage" target="_blank" rel="noopener">MDN</a><br>  1、2、3、4同上</p>
+<ol>
+<li>sessionStorage 在用户关闭页面（会话结束）后就失效<br><strong>注意：</strong>sessionStorage和上面的session并没有关系</li>
+</ol>
+<h2 id="使用-localStorage"><a href="#使用-localStorage" class="headerlink" title="使用 localStorage"></a>使用 localStorage</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var a = localStorage.getItem(&apos;a&apos;)</span><br><span class="line">  if(!a)&#123;</span><br><span class="line">    a = 0</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    a = parseInt(a,10) + 1</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(&apos;a&apos;,a)</span><br><span class="line">  localStorage.setItem(&apos;a&apos;,a)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>原本页面刷新后变量全部清掉了，但是现在a被localStorage保存下来了（在c盘的一个文件里）<br>这叫做持久化储存</p>
+<p><em>常用的一种方式</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  let already = localStorage.getItem(&apos;已经提示了&apos;)</span><br><span class="line">  if(!already)&#123;</span><br><span class="line">    alert(&apos;你好，我们的网站已经改版了，有了这些功能：……&apos;)</span><br><span class="line">    localStorage.setItem(&apos;已经提示了&apos;,true)</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p>这样使用localstroge来保存一个判断，就使得不会每次进入页面都出现提示了</p>
-
+<h2 id="cookie-与-LocalStorage-的区别"><a href="#cookie-与-LocalStorage-的区别" class="headerlink" title="cookie 与 LocalStorage 的区别"></a>cookie 与 LocalStorage 的区别</h2><p>cookie 会被发送给服务器而 localStorage 不会</p>
+<h1 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">HTTP 缓存</a></h1><p><em>web 性能优化</em></p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="noopener">Cache-Control</a><blockquote>
+<p>通用消息头被用于在http 请求和响应中通过指定指令来实现缓存机制。缓存指令是单向的, 这意味着在请求设置的指令，在响应中不一定包含相同的指令。</p>
+</blockquote>
+</li>
+</ul>
+<p>功能：让浏览器在一定时间内不访问服务器，直接用本地的硬盘或内存直接作为响应 从而提高速度<br>更新： 在入口处（html）把url稍微变动，和以前所有的url都不一样，那么它就不会使用缓存，浏览器就回去下载最新版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// nodejs</span><br><span class="line">if(path === &apos;/js/main.js&apos;&#123;</span><br><span class="line">  ...</span><br><span class="line">  response.setHeader(&apos;Cache-Control&apos;,&apos;max-age=30&apos;) // 缓存30秒</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>如果服务器给某个文件设置了cache-control，比如上面，<br>那么第一次请求后30秒内你刷新页面，请求并不会被浏览器发送到服务器<br>首页不要设置cache-control（最好所有html都不要设置）</p>
+<h2 id="更新缓存"><a href="#更新缓存" class="headerlink" title="更新缓存"></a>更新缓存</h2><p>将一个文件设置缓存，比如上面那个mian.js，改为一年（这很常见，比如知乎就是这么设置的）<br>那么如果有变动怎么办？<br>只有相同的url才会利用缓存，<br>所以，只要url有一点变化就会重新获取资源<br>依然是main.js,假设它有所变化<br>那么我们在引用mian.js的index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&apos;main.js?ver=1&apos;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>给它添加一个查询参数，它就会自动更新为最新版本<br>另一种方法，使用md5</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires" target="_blank" rel="noopener">Expires</a></li>
+</ul>
+<blockquote>
+<p>Expires 头指定了一个日期/时间， 在这个日期/时间之后，HTTP响应被认为是过时的；<br>无效的日期，比如 0, 代表着一个过去的事件，即该资源已经过期了。<br>如果还有一个 设置了 “max-age” 或者 “s-max-age” 指令的Cache-Control响应头，那么  Expires 头就会被忽略。 </p>
+</blockquote>
+<p>expires 是以前用的，现在都用 cache-control<br><code>response.setHeader(&#39;Ex[ores&#39;, &#39;Tue, 20 Mar 2018 07:13:41 GMT&#39;)</code><br>cache-control 设置的是多少时间以后过期<br>expires 设置的是什么时候过期<br><strong>但是</strong>，他使用的是本地时间，也就是说如果用户不小心将自己的本地时间设置了，或者错乱了，<br>那么可能就会受到影响，出现bug</p>
+<p> <a href="https://www.wikiwand.com/zh-hans/MD5" target="_blank" rel="noopener">MD5</a></p>
+<blockquote>
+<p>MD5讯息摘要演算法（英语：MD5 Message-Digest Algorithm），一种被广泛使用的密码杂凑函数，可以产生出一个128位元（16位元组）的散列值（hash value），用于确保信息传输完整一致。</p>
+</blockquote>
+<p><a href="https://www.npmjs.com/package/md5" target="_blank" rel="noopener">node使用md5</a></p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/ETag" target="_blank" rel="noopener">ETag</a></li>
+</ul>
+<blockquote>
+<p>ETag HTTP响应头是资源的特定版本的标识符。这可以让缓存更高效，并节省带宽，因为如果内容没有改变，Web服务器不需要发送完整的响应。而如果内容发生了变化，使用ETag有助于防止资源的同时更新相互覆盖（“空中碰撞”）。<br>如果给定URL中的资源更改，则一定要生成新的Etag值。 因此Etags类似于指纹，也可能被某些服务器用于跟踪。 比较etags能快速确定此资源是否变化，但也可能被跟踪服务器永久存留。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var md5 = require(&apos;md5&apos;);</span><br><span class="line"></span><br><span class="line">if(path === &apos;/js/main.js&apos;&#123;</span><br><span class="line">  let string = fs.readFileSync(&apos;./js/main/js&apos;, &apos;utf8&apos;)</span><br><span class="line">  ...</span><br><span class="line">  let fileMd5 = md5(string)</span><br><span class="line">  if(request.headers[&apos;if-none-match&apos;] === fileMd5)&#123;</span><br><span class="line">    // 没有响应体</span><br><span class="line">    response/statusCode = 304</span><br><span class="line">  &#125; else&#123;</span><br><span class="line">    response.setHeader(&apos;ETag&apos;,fileMd5)</span><br><span class="line">    // 有响应体</span><br><span class="line">    response.write(steing)</span><br><span class="line">  &#125;</span><br><span class="line">  response.end()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>cache-control 是直接不请求<br>etag 是请求不下载</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Last-Modified" target="_blank" rel="noopener">Last-Modified</a></li>
+</ul>
+<blockquote>
+<p>The Last-Modified  是一个响应首部，其中包含源头服务器认定的资源做出修改的日期及时间。 它通常被用作一个验证器来判断接收到的或者存储的资源是否彼此一致。由于精确度比  ETag 要低，所以这是一个备用机制。包含有  If-Modified-Since 或 If-Unmodified-Since 首部的条件请求会使用这个字段。 </p>
+</blockquote>
+<h1 id="浏览器缓存详解-expires-cache-control-last-modified-etag"><a href="#浏览器缓存详解-expires-cache-control-last-modified-etag" class="headerlink" title="浏览器缓存详解:expires,cache-control,last-modified,etag"></a><a href="http://blog.csdn.net/eroswang/article/details/8302191" target="_blank" rel="noopener">浏览器缓存详解:expires,cache-control,last-modified,etag</a></h1>
       
     </div>
     
@@ -399,7 +450,13 @@
           
             <a href="/tags/LocalStroage/" rel="tag"># LocalStroage</a>
           
+            <a href="/tags/SessionStorage/" rel="tag"># SessionStorage</a>
+          
             <a href="/tags/Cache-Control/" rel="tag"># Cache-Control</a>
+          
+            <a href="/tags/Expires/" rel="tag"># Expires</a>
+          
+            <a href="/tags/ETag/" rel="tag"># ETag</a>
           
         </div>
       
@@ -474,10 +531,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -498,7 +555,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -509,7 +566,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -519,8 +576,8 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
@@ -552,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie-存在的问题"><span class="nav-number">1.</span> <span class="nav-text">Cookie 存在的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Session-与-Cookie-的关系"><span class="nav-number">2.</span> <span class="nav-text">Session 与 Cookie 的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#localStorage"><span class="nav-number">3.</span> <span class="nav-text">localStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-localStroage"><span class="nav-number">3.1.</span> <span class="nav-text">使用 localStroage</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie-存在的问题"><span class="nav-number">1.</span> <span class="nav-text">Cookie 存在的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Session-与-Cookie-的关系"><span class="nav-number">2.</span> <span class="nav-text">Session 与 Cookie 的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不基于-cookie-的-session"><span class="nav-number">2.1.</span> <span class="nav-text">不基于 cookie 的 session</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-Storage"><span class="nav-number">3.</span> <span class="nav-text">web Storage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-localStorage"><span class="nav-number">3.1.</span> <span class="nav-text">使用 localStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie-与-LocalStorage-的区别"><span class="nav-number">3.2.</span> <span class="nav-text">cookie 与 LocalStorage 的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-缓存"><span class="nav-number">4.</span> <span class="nav-text">HTTP 缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新缓存"><span class="nav-number">4.1.</span> <span class="nav-text">更新缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器缓存详解-expires-cache-control-last-modified-etag"><span class="nav-number">5.</span> <span class="nav-text">浏览器缓存详解:expires,cache-control,last-modified,etag</span></a></li></ol></div>
             
 
           </div>
@@ -582,7 +639,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
