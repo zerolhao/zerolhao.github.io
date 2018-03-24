@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="webpack,工程化," />
 
 
 
@@ -79,16 +79,20 @@
 
 
 
-<meta name="description" content="我的第二篇博客依然教程ing…">
+<meta name="description" content="工程化 自动化（使用sass、babel等工具编译代码） 模块化 性能优化自动化工具将scss/sass转为ie也可以用的css使用babel将es6代码转化为es5代码单个使用自动化工具很麻烦，而 webpack 就省事多了，webpack 可以安装插件来实现它们的功能  webpackWebPack可以看做是模块打">
+<meta name="keywords" content="webpack,工程化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第二篇博客">
-<meta property="og:url" content="http://yoursite.com/2017/11/23/第二篇博客/index.html">
+<meta property="og:title" content="H45-初识webpack">
+<meta property="og:url" content="http://yoursite.com/2018/03/24/H45-初识webpack/index.html">
 <meta property="og:site_name" content="zerolhao-blog">
-<meta property="og:description" content="我的第二篇博客依然教程ing…">
-<meta property="og:updated_time" content="2017-11-24T12:31:45.333Z">
+<meta property="og:description" content="工程化 自动化（使用sass、babel等工具编译代码） 模块化 性能优化自动化工具将scss/sass转为ie也可以用的css使用babel将es6代码转化为es5代码单个使用自动化工具很麻烦，而 webpack 就省事多了，webpack 可以安装插件来实现它们的功能  webpackWebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9047034-0cfb5fff80435443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9047034-9c4c6d2c1bbf5946.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-24T07:53:23.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第二篇博客">
-<meta name="twitter:description" content="我的第二篇博客依然教程ing…">
+<meta name="twitter:title" content="H45-初识webpack">
+<meta name="twitter:description" content="工程化 自动化（使用sass、babel等工具编译代码） 模块化 性能优化自动化工具将scss/sass转为ie也可以用的css使用babel将es6代码转化为es5代码单个使用自动化工具很麻烦，而 webpack 就省事多了，webpack 可以安装插件来实现它们的功能  webpackWebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9047034-0cfb5fff80435443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/23/第二篇博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/24/H45-初识webpack/"/>
 
 
 
 
 
-  <title>第二篇博客 | zerolhao-blog</title>
+  <title>H45-初识webpack | zerolhao-blog</title>
   
 
 
@@ -261,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/第二篇博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/24/H45-初识webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zerolhao">
@@ -278,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第二篇博客</h1>
+          <h1 class="post-title" itemprop="name headline">H45-初识webpack</h1>
         
 
         <div class="post-meta">
@@ -290,8 +294,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T23:07:19+08:00">
-                2017-11-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-24T15:52:32+08:00">
+                2018-03-24
               </time>
             
 
@@ -300,6 +304,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jirengu/" itemprop="url" rel="index">
+                    <span itemprop="name">饥人谷</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -328,7 +354,23 @@
       
 
       
-        <h1 id="我的第二篇博客"><a href="#我的第二篇博客" class="headerlink" title="我的第二篇博客"></a>我的第二篇博客</h1><h2 id="依然教程ing…"><a href="#依然教程ing…" class="headerlink" title="依然教程ing…"></a>依然教程ing…</h2>
+        <h1 id="工程化"><a href="#工程化" class="headerlink" title="工程化"></a>工程化</h1><ul>
+<li>自动化（使用sass、babel等工具编译代码）</li>
+<li>模块化</li>
+<li>性能优化<br><em>自动化工具</em><br><a href="https://github.com/sass/sass" target="_blank" rel="noopener">将scss/sass转为ie也可以用的css</a><br><a href="https://babeljs.io/" target="_blank" rel="noopener">使用babel将es6代码转化为es5代码</a><br>单个使用自动化工具很麻烦，而 webpack 就省事多了，webpack 可以安装插件来实现它们的功能</li>
+</ul>
+<h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a><a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a></h1><p>WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。</p>
+<p><strong>WebPack和Grunt以及Gulp相比有什么特性</strong><br>其实Webpack和另外两个并没有太多的可比性，Gulp/Grunt是一种能够优化前端的开发流程的工具，而WebPack是一种模块化的解决方案，不过Webpack的优点使得Webpack在很多场景下可以替代Gulp/Grunt类的工具。</p>
+<p>Grunt和Gulp的工作方式是：在一个配置文件中，指明对某些文件进行类似编译，组合，压缩等任务的具体步骤，工具之后可以自动替你完成这些任务。<br><img src="https://upload-images.jianshu.io/upload_images/9047034-0cfb5fff80435443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>Webpack的工作方式是：把你的项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack将从这个文件开始找到你的项目的所有依赖文件，使用loaders处理它们，最后打包为一个（或多个）浏览器可识别的JavaScript文件。<br><img src="https://upload-images.jianshu.io/upload_images/9047034-9c4c6d2c1bbf5946.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><a href="https://zhuanlan.zhihu.com/p/30701816" target="_blank" rel="noopener">使用webpack</a><br>安装教程，直接看<a href="https://webpack.js.org/api/module-methods/" target="_blank" rel="noopener">官网教程</a><br><a href="https://www.zhihu.com/question/266788138" target="_blank" rel="noopener">面试题</a></p>
+<p>模块化，所有文件都是一个模块，引入到其中一个文件，<br>运行 <code>npx webpack</code> or <code>npm run build</code> （注意这是本地安装使用的命令）<br>然后所有文件会打包放到 bundle.js 里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// module1.js</span><br><span class="line">function fn()&#123;</span><br><span class="line">  console.loog(1)</span><br><span class="line">&#125;</span><br><span class="line">export default fn</span><br><span class="line"></span><br><span class="line">// module2.js</span><br><span class="line">function fn()&#123;</span><br><span class="line">  console.log(2)</span><br><span class="line">&#125;</span><br><span class="line">export default fn</span><br><span class="line"></span><br><span class="line">// app.js</span><br><span class="line">import module1 from &apos;./module1&apos;  // 引入模块1</span><br><span class="line">import module2 from &apos;./module2&apos;  // 引入模块2</span><br><span class="line">import &apos;../css/style.css&apos; // 引入css</span><br><span class="line">module1()  // use 模块</span><br><span class="line">module2()</span><br></pre></td></tr></table></figure></p>
+<p>所有源代码放在 src 文件夹<br>所有编译后的代码放在 dist 文件夹<br>src source 未编译<br>dist distribution 编译后<br><a href="https://github.com/zerolhao/task-code/tree/master/H45-webpack-demo" target="_blank" rel="noopener">代码</a></p>
+<h2 id="webpack-插件"><a href="#webpack-插件" class="headerlink" title="webpack 插件"></a>webpack 插件</h2><ul>
+<li><a href="https://github.com/babel/babel-loader" target="_blank" rel="noopener">Babel Loader</a></li>
+<li><a href="https://github.com/webpack-contrib/sass-loader" target="_blank" rel="noopener">SASS Loader</a></li>
+<li><a href="https://github.com/postcss/postcss-loader" target="_blank" rel="noopener">PostCSS Loader</a></li>
+</ul>
+<h1 id="parcel"><a href="#parcel" class="headerlink" title="parcel"></a><a href="https://parceljs.org/" target="_blank" rel="noopener">parcel</a></h1>
       
     </div>
     
@@ -343,6 +385,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/工程化/" rel="tag"># 工程化</a>
+          
+        </div>
+      
 
       
       
@@ -352,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/23/开博大吉/" rel="next" title="开博大吉">
-                <i class="fa fa-chevron-left"></i> 开博大吉
+              <a href="/2018/03/19/H44-Session、LocalStorage、Cache-Control/" rel="next" title="H44-Session、LocalStorage、Cache-Control">
+                <i class="fa fa-chevron-left"></i> H44-Session、LocalStorage、Cache-Control
               </a>
             
           </div>
@@ -361,10 +411,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/24/Hexo+GitHub博客搭建/" rel="prev" title="Hexo+GitHub博客搭建">
-                Hexo+GitHub博客搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -496,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我的第二篇博客"><span class="nav-number">1.</span> <span class="nav-text">我的第二篇博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#依然教程ing…"><span class="nav-number">1.1.</span> <span class="nav-text">依然教程ing…</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工程化"><span class="nav-number">1.</span> <span class="nav-text">工程化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack"><span class="nav-number">2.</span> <span class="nav-text">webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-插件"><span class="nav-number">2.1.</span> <span class="nav-text">webpack 插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#parcel"><span class="nav-number">3.</span> <span class="nav-text">parcel</span></a></li></ol></div>
             
 
           </div>
